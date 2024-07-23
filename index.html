@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Café Luwak</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            position: relative;
+            color: #fff;
+            background-image: url('https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/77002464_795383327558742_1011718394551992320_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=GBqwB_dkmn0Q7kNvgGVNSfh&_nc_ht=scontent-itm1-1.xx&oh=00_AYCc8PngRWg4uF3x7McnNf_qjJFChqLfLEkNiMVsxr5mrQ&oe=66C6AA1D');
+            background-size: cover;
+            background-position: center;
+            padding: 20px 0;
+            text-align: center;
+            animation: backgroundAnimation 30s infinite alternate;
+        }
+        main {
+    margin-top: 10px; 
+}
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: center;
+            }
+            200% {
+                background-position: right;
+            }
+        }
+        @media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .menu-item {
+        flex: 1 1 100%; 
+    }
+}
+
+        .nav {
+            background-color: #000000;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ffcc00; 
+        }
+
+        .coffee {
+            margin-top: 60px; 
+            color: #fff;
+        }
+
+        .coffee h1 {
+            font-size: 48px;
+            margin: 0;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .coffee p {
+            font-size: 24px;
+            animation: fadeIn 2s ease-out 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        main {
+            flex: 1;
+            padding: 20px 0;
+            overflow: auto; /* Allow scrolling */
+        }
+
+        .section {
+            padding: 60px 20px;
+            margin-top: 20px;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; 
+        }
+
+        .menu-item {
+            flex: 1 1 calc(20% - 20px); 
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: itemAnimation 1s ease-out;
+        }
+
+        @keyframes itemAnimation {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .menu-item h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .menu-item p {
+            font-size: 16px;
+        }
+
+        .managing-director {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .managing-director img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .managing-director p {
+            max-width: 600px;
+        }
+        
+        .video-container{
+            margin-top: 60px;
+            margin-bottom: 60px;
+            height: 600px;
+            width:300px;
+
+        }
+    
+        .books {
+            padding: 60px 20px;
+            background-color: #f0f0f0;
+        }
+
+        .books h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .books-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .books-item img {
+            max-width: 150px;
+            border-radius: 10px;
+            height: auto;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+
+        .books-item h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .books-item p {
+            margin: 5px 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        form button {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div class="container">
+                <a href="#" class="logo">Café Luwak</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#books">Books</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="coffee">
+            <h1>Welcome to Café Luwak</h1>
+            <p>Experience the finest coffee in town</p>
+        </div>
+    </header>
+    
+    <main>
+                <div id="menu" class="section">
+            <div class="container">
+                <h2>Our Menu</h2>
+                <div class="menu-items">
+                    
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/107754480_962952790801794_6769741804183654947_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=T5LuDDy9bPUQ7kNvgFM5Qs6&_nc_ht=scontent-itm1-1.xx&oh=00_AYDbcgAA1khN943zzQXwjiVB3d1hAcmMUxvz_vIVGYxL7A&oe=66C6DF1C" alt="Espresso">
+                        <h3>Espresso</h3>
+                        <p>A rich and bold coffee.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/47018455_575813256182418_7754586585621856256_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=1aRfcyCAvzwQ7kNvgF2Um3V&_nc_ht=scontent-itm1-1.xx&oh=00_AYB3_o5lcmxg4wt1iHFZRMOfynt-4KhQNB3vo8J_JYYFSA&oe=66C6BAE6" alt="Latte">
+                        <h3>Latte</h3>
+                        <p>A smooth blend of espresso and steamed milk.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/138602439_1097165387380533_5702322381064715562_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=Ryshs5DoF_YQ7kNvgE7Tv2O&_nc_ht=scontent-itm1-1.xx&oh=00_AYB74HRiEa2WqXMatbYD7uModatW6BP1ZPtENjR_Eg8bsg&oe=66C6EA17" alt="Cappuccino">
+                        <h3>Cappuccino</h3>
+                        <p>A classic coffee with a frothy top.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/145567122_1109993936097678_5560921229767259175_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_ohc=xtGW-Tr93zgQ7kNvgHevb8X&_nc_ht=scontent-itm1-1.xx&oh=00_AYB5gZnENWD-xdYy1esnXeMqLvCSm_Yb7HkOznIRNACEJg&oe=66C6D9AD" alt="Macchiato">
+                        <h3>Macchiato</h3>
+                        <p>Espresso with a touch of milk.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/151990273_1120808381682900_7951073862061498321_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=F6KVE9pwkTsQ7kNvgG4pUyx&_nc_ht=scontent-itm1-1.xx&oh=00_AYC58BRjV90LTi1He80A0O3ywr9uWprhIgcuCrg3bNQoMw&oe=66C6CF04" alt="Americano">
+                        <h3>Americano</h3>
+                        <p>Espresso diluted with hot water.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/46830790_574805239616553_231903078360547328_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=-IZ2tW0zolkQ7kNvgGEZAWY&_nc_ht=scontent-itm1-1.xx&oh=00_AYDNEmPpO_05bayjsN5Yh0FK2vkE4UbT38BBlfQq32HxAw&oe=66C6B8C1" alt="Mocha">
+                        <h3>Mocha</h3>
+                        <p>Espresso with chocolate and milk.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/148990720_1114861598944245_933851057227643757_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=zMKLIcm0uZ0Q7kNvgEsPHwR&_nc_ht=scontent-itm1-1.xx&oh=00_AYD7GXj-SbEO-4XprNxZciKQAA2-4OPCwuTs7uqzzgPRdQ&oe=66C6E37A" alt="Affogato">
+                        <h3>Affogato</h3>
+                        <p>Espresso poured over vanilla ice cream.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/81013770_813894545707620_2664779640958091264_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=2a1932&_nc_ohc=7omDNuX2BT0Q7kNvgE8D26z&_nc_ht=scontent-itm1-1.xx&oh=00_AYDQ7s3mgkDDuYcD6TgP52tSp7d7oxbKW6jSag0YIkSrwQ&oe=66C6E533" alt="Caffè Corretto">
+                        <h3>Caffè Corretto</h3>
+                        <p>Espresso with a shot of liquor.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://www.cookingclassy.com/wp-content/uploads/2022/07/iced-coffee-05.jpg" alt="Iced Coffee">
+                        <h3>Iced Coffee</h3>
+                        <p>Chilled coffee with ice cubes.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/87561843_873533483077059_1233784378602029056_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=7NoOJHLVS38Q7kNvgG4cJY5&_nc_ht=scontent-itm1-1.xx&oh=00_AYDXThmJfGv13JoChDjAxPtHuJS4_cpEG_dIkfN_SoUJwQ&oe=66C6D1BD" alt="Omlette">
+                        <h3>Omlette</h3>
+                        <p>Green tea latte with steamed milk.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t39.30808-6/294580931_1449569358806799_1377299323565109767_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=3a1ebe&_nc_ohc=0PIEWSPtELQQ7kNvgF2RUXu&_nc_ht=scontent-itm1-1.xx&oh=00_AYBvABP2h2l4xIdvNLHrqaJUEYZErN4NKoMwwfGiMZQmHg&oe=66A5307D" alt="Burger">
+                        <h3>Crispy Fried Chicken Burger</h3>
+                        <p>Strong Cuban espresso with sugar.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/86809031_869676946796046_7855941852392849408_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=9nUIvbHNYL8Q7kNvgE1rXQj&_nc_ht=scontent-itm1-1.xx&oh=00_AYB_WSWiinbk3LtFRmyfkLdUoNOB0Ih2FuRml9kNwnu77w&oe=66C6D3CE" alt="Mo:MO">
+                        <h3>Mo:Mo</h3>
+                        <p>Espresso with velvety microfoam.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/48056336_581659732264437_8006140092844343296_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=n5voTcooonkQ7kNvgHMxtTe&_nc_ht=scontent-itm1-1.xx&oh=00_AYDREakBv7qWGm52Kobd-FHSZVrChxhT7eVOCt6BC42hKQ&oe=66C6E402" alt="Café au Lait">
+                        <h3>Café au Lait</h3>
+                        <p>Equal parts brewed coffee and steamed milk.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/89382009_872889209808153_3504845604486381568_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=wVgGc2CFX70Q7kNvgGyJOmQ&_nc_ht=scontent-itm1-1.xx&oh=00_AYAeIPUS1Q-DBBikidlP0Zg6UiymJvxq1MLWe9cLEOmBPQ&oe=66C6C169" alt="Sandwich">
+                        <h3>Sandwich</h3>
+                        <p>Strong coffee brewed with finely ground beans.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/1519246658-irish-coffee-delish-1620163679.jpeg?crop=0.8890666666666666xw:1xh;center,top&resize=1200:" alt="Irish Coffee">
+                        <h3>Irish Coffee</h3>
+                        <p>Coffee with whiskey and cream.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/82792694_838533733243701_7411419312851779584_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=-yZ4CClcREQQ7kNvgHCnPJY&_nc_ht=scontent-itm1-1.xx&oh=00_AYDDMVpYaADSgNahd9h33nYH-JBnqchj8Ravuwc4mYHY8g&oe=66C6DED2" alt="Café au Lait">
+                        <h3>Café au Lait</h3>
+                        <p>Strong coffee with steamed milk.</p>
+                    </div>
+                   <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/74214393_792176994546042_1059693909392752640_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=spT8luDdvvUQ7kNvgEKrAMr&_nc_ht=scontent-itm1-1.xx&oh=00_AYAAsfb-geWVD1uE_9eFlrXOsjYT04RX21ExcCVjnmAV-Q&oe=66C6C0F1" alt="Doppio">
+                        <h3>Doppio</h3>
+                        <p>A double shot of espresso.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/69713466_783585312071877_5951560079265234944_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=OWn720cEbH4Q7kNvgGzSFTf&_nc_ht=scontent-itm1-1.xx&oh=00_AYDrNR7k9L0aJDYyfxhM_NM2nCQ3TYynp73-W0SPf3PJ7w&oe=66C6C859" alt="Café Latte Macchiato">
+                        <h3>Café Latte Macchiato</h3>
+                        <p>Latte with a touch of espresso.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/74373266_782698095493932_2066729758799953920_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=1xYx8i--WkAQ7kNvgE_mN48&_nc_ht=scontent-itm1-1.xx&oh=00_AYB5nWZcS5lG41gkanANAbG4-_H6e8ZrwRBgQq8w_4ox0A&oe=66C6C584" alt="Café Bombón">
+                        <h3>Café Bombón</h3>
+                        <p>Espresso layered with condensed milk.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/75588146_787134248383650_7112477460062535680_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=iqUp3OJSEKIQ7kNvgF2qown&_nc_ht=scontent-itm1-1.xx&oh=00_AYD5g507fxX7emo9XG6bNCOCZ121oy8vJ1GjYZUPMi0AnQ&oe=66C6C07E" alt="Café con Leche">
+                        <h3>Café con Leche</h3>
+                        <p>Coffee with hot milk.</p>
+                    </div>
+                    <div class="menu-item">
+                        <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/76767482_774723846291357_8515335820431851520_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=N0fzgto7F4gQ7kNvgHZA7Nx&_nc_ht=scontent-itm1-1.xx&oh=00_AYBYU9hm5ZjX0ipy2bp3G7cbWBLMsFsZzLZgIeDWYLmbLQ&oe=66C6E717" alt="Milano">
+                        <h3>Hazelnut Cappuccino</h3>
+                        <p>Espresso over hazelnut and milk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="books" class="section books">
+            <div class="container">
+                <h2>Books</h2>
+                <p> You can find out books to make your time memorable with beautiful stories.</p>
+                
+                    <div class="books-item">
+                    <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/76702323_792904417806633_4951457140297433088_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=vw918O72Ee0Q7kNvgEXsY0j&_nc_ht=scontent-itm1-1.xx&oh=00_AYCtXXr4L_M5YEMv1LDmAYbqZX8mN-8e9j23ZhsUykPTLg&oe=66C6EDA2" alt="Sunako Pahad">
+                    <div>
+                        <h3>By BISHNU BHANDARI</h3>
+                        <h4> Sunako Pahad </h4>
+                    </div>
+                </div>
+                <div class="books-item">
+                    <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/80201373_810381776058897_679486808597200896_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=EWixiQU0Su4Q7kNvgEmptmN&_nc_ht=scontent-itm1-1.xx&oh=00_AYCRbPIhAz1gTmNjbMrXgjd20GvvR5bBcM03IsyuYf8Xxg&oe=66C6B893" alt="Silanyas">
+                    <div>
+                        <h3>By Sujita Mainali</h3>
+                        <h4> Shilanyas </h4>
+                    </div>
+                </div>
+                <div class="books-item">
+                    <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/53055580_623672658063144_7700178824679391232_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=TpuZaKWSRxMQ7kNvgFRHtKB&_nc_ht=scontent-itm1-1.xx&oh=00_AYA4sDkj0POGA6Vph_JiAW66IsqVput1EvqWvFBZhjhgcA&oe=66C709AA" alt="Premalaya">
+                    <div>
+                        <h3>By Ashwini Koirala</h3>
+                        <h4> Premalaya </h4>
+                    </div>
+                </div>
+                <div class="books-item">
+                    <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t39.30808-6/278937852_1388564671573935_3123876659596631693_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=GmqXArW2Y_4Q7kNvgFCuAZz&_nc_ht=scontent-itm1-1.xx&oh=00_AYClNkSM2kiiguxaiJsmOE04PRSogOHMockwzFk04JV3cg&oe=66A558FA" alt="Gulaf Sanga ko Prem">
+                    <div>
+                        <h3>By Sangita Swechha </h3>
+                        <h4> Gulaf Sanga ko Prem </h4>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="managing-director" class="section">
+            <div class="container">
+                <h2>Managing Director</h2>
+                <div class="managing-director">
+                    <img src="https://scontent-itm1-1.xx.fbcdn.net/v/t1.6435-9/75289350_791611141269294_8930710835001556992_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=1MDZl5rHb_sQ7kNvgE354mn&_nc_ht=scontent-itm1-1.xx&oh=00_AYDE0p9icopOhX_2KSJnzICibyUs68yaAydH41ylepNYTA&oe=66C727AF" alt="Managing Director">
+                    <p> <b> SANTOSH BHANDARI </b> </p>
+                    <p>Welcome to Café Luwak! I am thrilled to be part of this amazing journey of bringing the finest coffee to our customers. Our team is passionate about delivering exceptional coffee experiences, and we are committed to excellence in every cup. Thank you for being a part of our story!</p>
+                </div>
+            </div>
+        </div>
+        <div id="videos" class="selection">
+            <div class="container">
+                <h2>Videos</h2>
+                <div class="videos">
+                    <iframe width="300px" height="600px" src="https://www.youtube.com/embed/a7rN6XgbKeY" allowfullscreen></iframe>               
+                    <iframe width="300px" height="600px" src="https://www.youtube.com/embed/J80H3aAe7Ps" allowfullscreen></iframe>
+                    <iframe width="300px" height="600px" src="https://www.youtube.com/embed/CagWOmrkKoc" allowfullscreen></iframe>
+                    </div>
+            </div>
+        </div>
+        <div id="About Us" class="selection">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>Café Luwak is a premium coffee shop located in the heart of Kalikasthan, Dillibazar, 
+                    Kathmandu, Nepal. Our team of passionate and dedicated staff brings you the finest c
+                    offee to our customers. We are committed to offering exceptional service and creating 
+                    memorable experiences for our customers.</p>
+                  
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="contact" class="section">
+            <div class="container">
+                <h2>Contact Us</h2>
+                <p>Have questions? Reach out to us!</p>
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Café Luwak. All rights reserved.</p>
+        <p>Kalikasthan, Dillibazzar, Kathmandu, Nepal</p>
+        <p>Email: info@cafeluak.com | Phone: +977 1-4445321 </p>
+        <p>Follow us on <a href="https://www.facebook.com/cafeluwaknepal/">Facebook</a> | <a href="https://www.instagram.com/thecafeluwak/?hl=en">Instagram</a></p>
+    </footer>
+</body>
+</html>
